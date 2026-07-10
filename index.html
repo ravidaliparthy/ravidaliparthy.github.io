@@ -162,7 +162,6 @@ body::before{
   transition:box-shadow .3s ease, border-color .3s ease;
   overflow:hidden;
 }
-/* faint dotted texture inside the navbar itself, echoing the hero grid */
 .navbar::before{
   content:"";
   position:absolute;inset:0;
@@ -195,7 +194,6 @@ body::before{
   transition:.3s ease;
   cursor:pointer;
 }
-/* RKC — slow ambient shine sweep across the badge, always subtly alive */
 .logo::before{
   content:"";
   position:absolute;
@@ -273,6 +271,8 @@ section::before{
 #skills::before{background:radial-gradient(ellipse at center, rgba(244,114,182,.08), transparent 72%);}
 #achievements::before{background:radial-gradient(ellipse at center, rgba(56,189,248,.09), transparent 72%);}
 #contact::before{background:radial-gradient(ellipse at center, rgba(167,139,250,.09), transparent 72%);}
+
+#skills{max-width:1320px}
 
 h2{
   font-family:var(--font-display);
@@ -564,7 +564,6 @@ h2{
   box-shadow:0 12px 32px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.06);
   transition:transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1), border-color .3s ease;
 }
-/* tint reduced slightly — softer glow blob, less saturation bleed on the card face */
 .project-card::before{
   content:"";
   position:absolute;top:-60px;right:-60px;
@@ -644,45 +643,45 @@ h2{
   .project-card,.project-card--featured{grid-column:span 1;grid-row:span 1}
 }
 
-/* ================= SKILLS — PANELS ================= */
+/* ================= SKILLS — 2x2 PANEL GRID, 2-COLUMN ITEMS ================= */
 .skills-panels{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:30px;
-  margin-top:36px;
+  grid-template-columns:repeat(2,1fr);
+  gap:44px;
+  margin-top:50px;
 }
 .skill-panel{
   position:relative;
-  padding:32px 32px 30px;
-  border-radius:26px;
+  padding:42px 40px 40px;
+  border-radius:28px;
   background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.04));
   border:1px solid color-mix(in srgb, var(--cat) 12%, var(--border));
   border-top:3px solid var(--cat);
-  box-shadow:0 16px 36px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.06);
+  box-shadow:0 18px 42px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.06);
   transition:transform .4s cubic-bezier(.4,0,.2,1), box-shadow .4s ease;
 }
 .skill-panel:hover{
   transform:translateY(-8px);
-  box-shadow:0 26px 55px rgba(0,0,0,.4), 0 0 34px color-mix(in srgb, var(--cat) 32%, transparent), inset 0 1px 0 rgba(255,255,255,.09);
+  box-shadow:0 30px 62px rgba(0,0,0,.42), 0 0 38px color-mix(in srgb, var(--cat) 34%, transparent), inset 0 1px 0 rgba(255,255,255,.09);
 }
-.skill-panel-head{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.skill-panel-head{display:flex;align-items:center;gap:16px;margin-bottom:34px}
 .skill-icon{
   display:flex;align-items:center;justify-content:center;
-  width:42px;height:42px;
-  border-radius:14px;
+  width:50px;height:50px;
+  border-radius:16px;
   background:color-mix(in srgb, var(--cat) 22%, transparent);
   color:var(--cat);
   flex-shrink:0;
-  box-shadow:0 0 14px color-mix(in srgb, var(--cat) 28%, transparent);
+  box-shadow:0 0 16px color-mix(in srgb, var(--cat) 30%, transparent);
 }
-.skill-icon svg{width:22px;height:22px}
-.skill-panel-head h3{font-size:1.15rem;letter-spacing:.2px;flex:1}
+.skill-icon svg{width:24px;height:24px}
+.skill-panel-head h3{font-size:1.25rem;letter-spacing:.2px;flex:1}
 .skill-count{
   position:relative;overflow:hidden;
-  font-size:.75rem;font-weight:700;
+  font-size:.78rem;font-weight:700;
   color:var(--cat);
   border:1px solid color-mix(in srgb, var(--cat) 55%, var(--border));
-  padding:4px 11px;
+  padding:5px 13px;
   border-radius:999px;
   background:linear-gradient(135deg, color-mix(in srgb, var(--cat) 28%, transparent), color-mix(in srgb, var(--cat) 6%, transparent));
   box-shadow:0 0 12px color-mix(in srgb, var(--cat) 36%, transparent);
@@ -694,47 +693,48 @@ h2{
   animation:badge-shine 4s ease-in-out infinite;
 }
 
+/* Exactly 2 columns of skill items within every sub-domain panel */
 .skills-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
-  gap:14px;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px 20px;
 }
 .skill-card{
   display:flex;
   align-items:center;
-  gap:9px;
-  padding:12px 12px;
-  border-radius:14px;
-  font-size:.86rem;
+  gap:12px;
+  padding:16px 18px;
+  border-radius:16px;
+  font-size:.92rem;
   font-weight:500;
   letter-spacing:.2px;
   background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05));
   border:1px solid color-mix(in srgb, var(--cat) 10%, var(--border));
   text-align:left;
-  box-shadow:0 6px 18px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.07);
+  box-shadow:0 8px 20px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.07);
   transition:transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s cubic-bezier(.4,0,.2,1), border-color .3s ease;
   cursor:default;
 }
 .skill-card-icon{
   display:flex;align-items:center;justify-content:center;
-  width:26px;height:26px;
+  width:32px;height:32px;
   flex-shrink:0;
-  border-radius:8px;
+  border-radius:10px;
   background:color-mix(in srgb, var(--cat) 26%, transparent);
   color:var(--cat);
 }
-.skill-card-icon svg{width:14px;height:14px}
-.skill-card span.skill-name{line-height:1.25}
+.skill-card-icon svg{width:17px;height:17px}
+.skill-card span.skill-name{line-height:1.3}
 
 .skill-card:hover{
-  transform:translateY(-10px) scale(1.05);
+  transform:translateY(-8px) scale(1.03);
   border-color:var(--cat);
-  box-shadow:0 18px 45px rgba(0,0,0,.38), 0 0 30px color-mix(in srgb, var(--cat) 45%, transparent), inset 0 1px 0 rgba(255,255,255,.12);
+  box-shadow:0 20px 48px rgba(0,0,0,.4), 0 0 32px color-mix(in srgb, var(--cat) 45%, transparent), inset 0 1px 0 rgba(255,255,255,.12);
 }
 .skill-card:hover .skill-card-icon{background:var(--cat);color:#020617}
 
-[data-theme="light"] .skill-card{box-shadow:0 8px 20px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.7)}
-[data-theme="light"] .skill-card:hover{box-shadow:0 18px 40px rgba(0,0,0,.18), 0 0 26px color-mix(in srgb, var(--cat) 30%, transparent)}
+[data-theme="light"] .skill-card{box-shadow:0 10px 22px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.7)}
+[data-theme="light"] .skill-card:hover{box-shadow:0 20px 42px rgba(0,0,0,.18), 0 0 28px color-mix(in srgb, var(--cat) 30%, transparent)}
 
 /* ================= ACHIEVEMENTS — UNIFORM GRID ================= */
 .achieve-uniform-grid{
@@ -1102,6 +1102,14 @@ footer span{color:var(--accent);text-shadow:0 0 12px color-mix(in srgb, var(--ac
   .exp-node{width:44px;height:44px}
   .exp-node svg{width:18px;height:18px}
   .exp-item{gap:18px}
+
+  .skills-panels{grid-template-columns:1fr;gap:32px;margin-top:38px}
+  .skill-panel{padding:32px 28px 30px}
+  .skills-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+}
+
+@media(max-width:560px){
+  .skills-grid{grid-template-columns:1fr}
 }
 
 #global-ripple{
